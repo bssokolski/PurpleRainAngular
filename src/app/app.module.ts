@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule} from "@angular/material";
 import {RouterModule} from '@angular/router';
 import{HttpClientModule} from '@angular/common/http';
 import { MatToolbarModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
@@ -22,6 +23,9 @@ import { OutfitEditComponent } from './components/Outfit/outfit-edit/outfit-edit
 import { OutfitDeleteComponent } from './components/outfit/outfit-delete/outfit-delete.component';
 import { ActionDetailComponent } from './components/action/action-detail/action-detail.component';
 import { ActionEditComponent } from './components/action/action-edit/action-edit.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import {AuthService} from 'src/app/services/auth.service';
+import { LoginComponent } from './components/login/login.component'; 
 
 
 const routes = [
@@ -47,10 +51,10 @@ const routes = [
     {path: 'detail/:id', component: ActionDetailComponent},
     {path: 'edit/:id', component: ActionEditComponent},
   ]
-}
-
-
-  
+},
+   {path: 'register', component: RegistrationComponent},
+  {path: 'login', component: LoginComponent},
+  {path: '**', component: RegistrationComponent}
 ];
 @NgModule({
   declarations: [
@@ -65,7 +69,9 @@ const routes = [
     OutfitCreateComponent,
     OutfitEditComponent,
     OutfitDeleteComponent,
-    ActionDetailComponent
+    ActionDetailComponent,
+    RegistrationComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,16 +80,19 @@ const routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     MatToolbarModule,
-    MatToolbarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+     MatButtonModule,
+    BrowserAnimationsModule
 
   ],
   providers: [
   LocationService,
   OutfitsService,
-  ActionsService
+  ActionsService,
+    AuthService
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

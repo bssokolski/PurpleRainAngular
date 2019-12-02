@@ -17,14 +17,19 @@ import { LocationDeleteComponent } from './components/location/location-delete/l
 import { OutfitDetailsComponent } from './components/Outfit/outfit-details/outfit-details.component';
 import { OutfitsService } from './services/outfits.service';
 import { ActionsService } from './services/actions.service';
+import { AuthService } from './services/auth.service';
 import { OutfitCreateComponent } from './components/outfit/outfit-create/outfit-create.component';
 import { OutfitEditComponent } from './components/Outfit/outfit-edit/outfit-edit.component';
 import { OutfitDeleteComponent } from './components/outfit/outfit-delete/outfit-delete.component';
 import { ActionDetailComponent } from './components/action/action-detail/action-detail.component';
 import { ActionEditComponent } from './components/action/action-edit/action-edit.component';
+import { ActionCreateComponent } from './components/action/action-create/action-create.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 
 const routes = [
+  {path: 'register', component:RegistrationComponent},
+  {path: '**', component:RegistrationComponent},
     {
   path: 'location', children:[
     {path: '', component: LocationIndexComponent},
@@ -56,6 +61,7 @@ const routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
+    RegistrationComponent,
     LocationIndexComponent,
     LocationCreateComponent,
     LocationDetailComponent,
@@ -65,7 +71,9 @@ const routes = [
     OutfitCreateComponent,
     OutfitEditComponent,
     OutfitDeleteComponent,
-    ActionDetailComponent
+    ActionDetailComponent,
+    ActionCreateComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -80,6 +88,7 @@ const routes = [
 
   ],
   providers: [
+  AuthService,
   LocationService,
   OutfitsService,
   ActionsService

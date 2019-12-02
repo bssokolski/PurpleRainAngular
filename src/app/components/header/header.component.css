@@ -1,0 +1,8 @@
+.flex-filler{
+    flex: 1 1 auto;
+}
+
+.nav-btn{
+    margin-right: 0.5em;
+    background-color: #132584;
+}

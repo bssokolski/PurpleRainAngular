@@ -1,7 +1,5 @@
-import { ExecFileOptionsWithStringEncoding } from 'child_process';
-
 export interface RegisterUser{
-    email:ExecFileOptionsWithStringEncoding;
+    email: string;
     password: string;
     confirmPassword: string;
 }

@@ -1,5 +1,5 @@
 enum TopType {
-    Comfort,
+    Comfort=1,
     Tshirt,
     Sweater,
     Hoody,
@@ -11,10 +11,23 @@ enum TopType {
 }
 
 enum BottomType{
-    Sweatpants,
+    Sweatpants=1,
     Shorts,
     Pants,
     Skirt
+}
+enum Otemperature{
+    zero,
+    one,
+    two,
+    three,
+    four,
+    five,
+    six,
+    seven,
+    eight,
+    nine,
+    ten
 }
 export interface Outfit{
 
@@ -22,5 +35,7 @@ OutfitID?: number;
 OutfitName?: string;
 Top?: TopType;
 Bottom?: BottomType;
+LocationID: number;
+OtempRange: Otemperature;
 
 }

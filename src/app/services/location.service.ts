@@ -15,8 +15,8 @@ export class LocationService {
     return this.http.get(`${Api_Url})/api/location`,)
   };
 
-  createLocation(location:LocationModel){
-    return this.http.post(`${Api_Url}/api/location`,location,)
+  createLocation(location:LocationModel, id: number){
+    return this.http.post(`${Api_Url}/api/location${id}`,location,)
   };
 
   getLocation(id: string){

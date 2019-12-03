@@ -25,7 +25,7 @@ export class OutfitsService {
     return this.http.post(`${Api_Url}/api/Outfit?locationid=${id}`, outfit,{headers: this.getHeaders()})
   }
 
-  updateOutfit(id: number, outfit:Outfit){
+  updateOutfit(outfit:Outfit,id: number){
     return this.http.put(`${Api_Url}/api/Outfit?outfitid=${id}`,outfit,{headers: this.getHeaders()})
   }
 
@@ -41,4 +41,5 @@ export class OutfitsService {
   getTempOpen(zipCode:number){
     return this.http.get(`${Api_Url2}zip=${zipCode}&units=imperial&APPID=${APPID}`)
 
+}
 }

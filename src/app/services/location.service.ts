@@ -19,7 +19,7 @@ export class LocationService {
   }
 
   createLocation(location:LocationModel,){
-    return this.http.post(`${Api_Url}/api/location`,location,{headers: this.getHeaders()}))
+    return this.http.post(`${Api_Url}/api/location`,location,{headers: this.getHeaders()})
 
   };
 

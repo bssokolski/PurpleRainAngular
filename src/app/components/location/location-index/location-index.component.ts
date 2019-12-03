@@ -7,6 +7,8 @@ import { Temp } from 'src/app/models/Temp';
 import { MatInputModule } from '@angular/material';
 import { OutfitsService } from 'src/app/services/outfits.service';
 import { Outfit } from 'src/app/models/Outfit';
+import {MatTableDataSource} from '@angular/material';
+
 
 @Component({
   selector: 'app-location-index',
@@ -35,6 +37,14 @@ export class LocationIndexComponent implements OnInit {
       this.main.Action=action);
           this.outfitService.getEnumOutfit(this.main.Temp,element.LocationId).subscribe((outfit:Outfit)=>
           this.main.Outfit=outfit)
+  columnNames= ['details','LocationID', 'LocationName', 'CityName','Outfit','Action','buttons']
+  dataSource: MatTableDataSource<Location>
+
+  constructor(private locationService: LocationService) { }
+
+  ngOnInit() {
+    this.locationService.getLocations().subscribe((locations: Location[])=>{
+        this.dataSource = new MatTableDataSource<Location>(locations);
 
         
         this.finalArray.push(this.main);

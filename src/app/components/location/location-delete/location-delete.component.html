@@ -1,1 +1,15 @@
-<p>location-delete works!</p>
+<h1>Delete Note</h1>
+<h4>Are you sure you want to delete this note?  </h4>
+<hr />
+
+<div *ngIf="location">
+    <div>
+        <label>LocationName: </label>
+        <span>{{location.LocationName}}</span>
+    </div>
+    <div>
+        <label>CityName: </label>
+        <span>{{location.CityName}}</span>
+    </div>
+    <button mat-raised-button color="warn" (click)="onDelete">Delete</button>
+</div>

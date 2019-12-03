@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Outfit } from '../models/Outfit';
-import { LocationModel } from '../models/location';
 
 
 const Api_Url= 'https://localhost:44368/';
@@ -16,19 +15,22 @@ export class OutfitsService {
   constructor(private http: HttpClient) { }
 
   getOutfits(id){
-    return this.http.get(`${Api_Url}/api/Outfit/${id}`,)
+    return this.http.get(`${Api_Url}/api/Outfit/${id}`,{headers: this.getHeaders()})
+  }
+  private getHeaders(){
+    return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
 
   createOutfits(id:number , outfit: Outfit){
-    return this.http.post(`${Api_Url}/api/Outfit?locationid=${id}`, outfit,)
+    return this.http.post(`${Api_Url}/api/Outfit?locationid=${id}`, outfit,{headers: this.getHeaders()})
   }
 
   updateOutfit(id: number, outfit:Outfit){
-    return this.http.put(`${Api_Url}/api/Outfit?outfitid=${id}`,outfit,)
+    return this.http.put(`${Api_Url}/api/Outfit?outfitid=${id}`,outfit,{headers: this.getHeaders()})
   }
 
   deleteOutfit(id: number){
-    return this.http.delete(`${Api_Url}api/Outfit/${id}`,)
+    return this.http.delete(`${Api_Url}api/Outfit/${id}`,{headers: this.getHeaders()})
 
   }
 

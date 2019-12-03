@@ -92,11 +92,10 @@ const routes = [
 
   ],
   providers: [
-  AuthService,
-  LocationService,
-  OutfitsService,
-  ActionsService,
-    AuthService
+    AuthService,
+    LocationService,
+    OutfitsService,
+    ActionsService,
   ],
 
   bootstrap: [AppComponent]

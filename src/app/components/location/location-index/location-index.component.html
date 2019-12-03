@@ -1,1 +1,37 @@
-<p>location-index works!</p>
+<ng-container matColumnDef="details">
+    <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+    <mat-cell *matCellDef="let note"> <i class ="material-icons">library_books</i> </mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="LocationID">
+    <mat-header-cell *matHeaderCellDef> Location #</mat-header-cell>
+    <mat-cell *matCellDef="let note"> {{location.LocationID}}</mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="LocationName">
+    <mat-header-cell *matHeaderCellDef> City</mat-header-cell>
+    <mat-cell *matCellDef="let note"> {{location.CityName}}</mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="CityName">
+    <mat-header-cell *matHeaderCellDef> City</mat-header-cell>
+    <mat-cell *matCellDef="let note"> {{location.CityName}}</mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="Outfit">
+    <mat-header-cell *matHeaderCellDef> Outfit </mat-header-cell>
+    <mat-cell *matCellDef="let note"> {{location.Outfit}}</mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="Action">
+    <mat-header-cell *matHeaderCellDef> Activity </mat-header-cell>
+    <mat-cell *matCellDef="let note"> {{location.Action}</mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="buttons">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let location">
+        <i mat-icon class="material-icons" routerLink="/location/edit/{{location.LocationId}}">edit</i>
+        <i class="material-icons" routerLink="/location/delete/{{location.LocationId}}">delete</i>
+    </mat-cell>
+</ng-container>

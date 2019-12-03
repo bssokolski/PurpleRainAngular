@@ -1,1 +1,34 @@
-<p>location-detail works!</p>
+<h1>Details</h1>
+<hr/>
+
+<div *ngIf="location">
+    <div>
+        <label>LocationID:</label>
+        <span>{{location.LocationID}}</span>
+    </div>
+    <div>
+        <label>LocationName:</label>
+        <span>{{location.LocationName}}</span>
+    </div>
+    <div>
+        <label>CityName:</label>
+        <span>{{location.CityName}}</span>
+    </div>
+    <div>
+        <label>OutfitID:</label>
+        <span>{{location.OutfitID}}</span>
+    </div>
+    <div>
+        <label>Outfit:</label>
+        <span>{{location.Outfit}}</span>
+    </div>
+    <div>
+        <label>ActionID:</label>
+        <span>{{location.ActionID}}</span>
+    </div>
+    <div>
+        <label>Action:</label>
+        <span>{{location.Action}}</span>
+    </div>
+    <button mat-raised-button color="accent">Edit</button>
+</div>

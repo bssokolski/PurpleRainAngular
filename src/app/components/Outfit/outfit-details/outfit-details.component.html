@@ -1,1 +1,26 @@
-<p>outfit-details works!</p>
+<h1>Details</h1>
+<hr/>
+
+<div *ngIf="action">
+    <div>
+        <label>OutfitID:</label>
+        <span>{{Outfit.OutfitID}}</span>
+    </div>
+    <div>
+        <label>OutfitName:</label>
+        <span>{{Outfit.OutfitName}}</span>
+    </div>
+    <div>
+        <label>Top:</label>
+        <span>{{Outfit.Top}}</span>
+    </div>
+    <div>
+        <label>Bottom::</label>
+        <span>{{Outfit.Bottom}}</span>
+    </div>
+    <div>
+        <label>OtempRange::</label>
+        <span>{{Outfit.OtempRange}}</span>
+    </div>
+    <button mat-raised-button color="accent">Edit</button>
+</div>

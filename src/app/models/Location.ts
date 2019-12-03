@@ -1,11 +1,11 @@
 import { Type } from '@angular/compiler';
 
 export interface LocationModel{
-    LocationId?: number;
+    LocationID?: number;
     LocationName?: string;
     CityName?: string;
-    OwnerId: number;
-    OutfitId?: number;
+    OwnerID: number;
+    OutfitID?: number;
     Outfit?: Type;
     ActivityID?:number;
     Action?:Type;

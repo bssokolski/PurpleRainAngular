@@ -1,1 +1,39 @@
-<p>outfit-edit works!</p>
+<p>Edit</p>
+<hr/>
+
+<div *ngIf="outfit">
+    <form (ngSubmit)="onSubmit()" [formGroup]="editForm">
+        <div>
+            <div hidden>
+                <input matInput placeholder="OutfitID" formControlName="OutfitID" type="number" required [value]="action.OutfitID"/>
+            </div>
+            <div>
+                <mat-form-field>
+                <input matInput placeholder= "OutfitName" formControlName="OutfitName" type="text" required [value]="action.OutfitName"/>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                <select matInput placeholder= "Top" formControlName="Top" type="text" required [value]="action.Top">
+                    <option></option>
+                </select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                <select matInput placeholder= "Bottom" formControlName="Bottom" type="text" required [value]="action.Bottom">
+                    <option></option>
+                </select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                <select matInput placeholder= "OtempRange" formControlName="OtempRange" type="text" required [value]="action.OtempRange">
+                    <option></option>
+                </select>
+                </mat-form-field>
+            </div>
+        </div>
+        <button mat-raised-button class="nav-btn" color="primary" type="submit">Save</button>
+    </form>
+</div> 

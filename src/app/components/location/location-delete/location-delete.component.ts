@@ -25,7 +25,7 @@ location: LocationModel;
   }
 
   onDelete(){
-    this.locationService.deleteLocation(this.location.LocationId).subscribe(()=>{
+    this.locationService.deleteLocation(this.location.LocationID).subscribe(()=>{
       this.router.navigate(['/location']);
     });
   }

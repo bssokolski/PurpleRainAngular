@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActionsService } from 'src/app/services/actions.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FocusMonitor } from '@angular/cdk/a11y';
 import { LocationModel } from 'src/app/models/location';
 import { getMatIconFailedToSanitizeLiteralError } from '@angular/material';
 
@@ -36,7 +35,7 @@ export class ActionCreateComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(routeData=> {
       this.actionService.getAction(routeData.get('locationId')).subscribe((locationn:LocationModel)=>{
         this.location=locationn;
-    this.actionService.createAction(locationn.LocationId,this.actionForm.value).subscribe(data=>{
+    this.actionService.createAction(locationn.LocationID,this.actionForm.value).subscribe(data=>{
       this.router.navigate([''])
     })
   });

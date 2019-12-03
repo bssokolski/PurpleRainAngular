@@ -3,8 +3,7 @@ import { Outfit } from 'src/app/models/Outfit';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { OutfitsService } from 'src/app/services/outfits.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { runInThisContext } from 'vm';
-import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-outfit-edit',
@@ -49,7 +48,7 @@ export class OutfitEditComponent implements OnInit {
       LocationID:this.editOutfitForm.value.LocationID,
       OtempRange: this.editOutfitForm.value.OtempRange
     };
-    this.outfitService.updateOutfit(LocationID).subscribe(()=>{
+    this.outfitService.updateOutfit(updateOutfit,this.outfit.LocationID).subscribe(()=>{
       this.router.navigate(['']);
     });
   }

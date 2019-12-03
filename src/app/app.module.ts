@@ -3,9 +3,8 @@ import { NgModule, Component } from '@angular/core';
 import { MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule} from "@angular/material";
 import {RouterModule} from '@angular/router';
 import{HttpClientModule} from '@angular/common/http';
-import { MatToolbarModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -18,17 +17,20 @@ import { LocationDeleteComponent } from './components/location/location-delete/l
 import { OutfitDetailsComponent } from './components/Outfit/outfit-details/outfit-details.component';
 import { OutfitsService } from './services/outfits.service';
 import { ActionsService } from './services/actions.service';
+import { AuthService } from './services/auth.service';
 import { OutfitCreateComponent } from './components/outfit/outfit-create/outfit-create.component';
 import { OutfitEditComponent } from './components/Outfit/outfit-edit/outfit-edit.component';
 import { OutfitDeleteComponent } from './components/outfit/outfit-delete/outfit-delete.component';
 import { ActionDetailComponent } from './components/action/action-detail/action-detail.component';
 import { ActionEditComponent } from './components/action/action-edit/action-edit.component';
+import { ActionCreateComponent } from './components/action/action-create/action-create.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import {AuthService} from 'src/app/services/auth.service';
 import { LoginComponent } from './components/login/login.component'; 
 
 
 const routes = [
+  {path: 'register', component:RegistrationComponent},
+  {path: '**', component:RegistrationComponent},
     {
   path: 'location', children:[
     {path: '', component: LocationIndexComponent},
@@ -60,6 +62,7 @@ const routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
+    RegistrationComponent,
     LocationIndexComponent,
     LocationCreateComponent,
     LocationDetailComponent,
@@ -70,6 +73,7 @@ const routes = [
     OutfitEditComponent,
     OutfitDeleteComponent,
     ActionDetailComponent,
+    ActionCreateComponent,
     RegistrationComponent,
     LoginComponent,
   ],
@@ -87,6 +91,7 @@ const routes = [
 
   ],
   providers: [
+  AuthService,
   LocationService,
   OutfitsService,
   ActionsService,

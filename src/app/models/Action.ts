@@ -1,5 +1,5 @@
 enum ActivityType{
-    Biking,
+    Biking=1,
     Walking,
     Hiking,
     Swimming,
@@ -14,8 +14,24 @@ enum ActivityType{
     Roleplaying,
     Dancing
 }
+
+enum Atemperature{
+    zero,
+    one,
+    two,
+    three,
+    four,
+    five,
+    six,
+    seven,
+    eight,
+    nine,
+    ten
+}
 export interface ActionModel{
     ActivityID: number;
     Activity: ActivityType;
+    AtempRange: Atemperature;
+    LocationID: number;
 
 }

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class OutfitCreateComponent implements OnInit {
 
   outfitForm: FormGroup;
+  id: string;
 
   constructor(private outfitService: OutfitsService, private form: FormBuilder, private router: Router) {
     
@@ -30,7 +31,7 @@ export class OutfitCreateComponent implements OnInit {
   }
 
     onSubmit() {
-      this.outfitService.createOutfits(this.outfitForm.value).subscribe(data => {
+      this.outfitService.createOutfits(this.id,this.outfitForm.value).subscribe(data => {
         this.router.navigate(['']);
       });
     }

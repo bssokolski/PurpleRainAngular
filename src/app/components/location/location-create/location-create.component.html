@@ -1,1 +1,17 @@
-<p>location-create works!</p>
+<h1>Add Location</h1>
+<hr/>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="locationForm">
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="LocationName" formControlName="LocationName" type="LocationName" required>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="CityName" formControlName="CityName" type="CityName" required>
+        </mat-form-field>
+    </div>
+    <button mat-raised-button-class="nav-btn" color="primary" type="submit">Add</button>
+
+</form>

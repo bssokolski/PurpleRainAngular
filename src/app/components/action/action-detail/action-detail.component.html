@@ -1,1 +1,18 @@
-<p>action-detail works!</p>
+<h1>Details</h1>
+<hr/>
+
+<div *ngIf="action">
+    <div>
+        <label>ActivityID:</label>
+        <span>{{Action.ActivityID}}</span>
+    </div>
+    <div>
+        <label>Activity:</label>
+        <span>{{Action.Activity}}</span>
+    </div>
+    <div>
+        <label>AtempRange:</label>
+        <span>{{Activity.AtempRange}}</span>
+    </div>
+    <button mat-raised-button color="accent">Edit</button>
+</div>

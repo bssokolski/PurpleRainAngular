@@ -1,5 +1,23 @@
-<p>location-edit works!</p>
+<p>Edit</p>
+<hr/>
 
-
-
-<app-action-create></app-action-create>
+<div *ngIf="location">
+    <form (ngSubmit)="onSubmit()" [formGroup]="editForm">
+        <div>
+            <div hidden>
+                <input matInput placeholder="LocationID" formControlName="LocationID" type="number" required [value]="location.LocationID"/>
+            </div>
+            <div>
+                <mat-form-field>
+                <input matInput placeholder= "LocationName" formControlName="LocationName" type="text" required [value]="location.LocationName"/>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                <input matInput placeholder= "CityName" formControlName="CityName" type="text" required [value]="location.CityName"/>
+                </mat-form-field>
+            </div>
+        </div>
+        <button mat-raised-button class="nav-btn" color="primary" type="submit">Save</button>
+    </form>
+</div>

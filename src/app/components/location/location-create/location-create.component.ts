@@ -22,7 +22,7 @@ export class LocationCreateComponent implements OnInit {
   createForm(){
     this.locationForm = this.form.group({
       LocationName: new FormControl,
-      CityName: new FormControl
+      CityName: new FormControl // this is now zipcode but we are going to call it city name 
 
     });
   }

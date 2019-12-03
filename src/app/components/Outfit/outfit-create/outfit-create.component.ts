@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { OutfitsService } from 'src/app/services/outfits.service';
 import { Router } from '@angular/router';
+import { LocationModel } from '../models/location';
 
 @Component({
   selector: 'app-outfit-create',
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
 export class OutfitCreateComponent implements OnInit {
 
   outfitForm: FormGroup;
-  id: string;
+  location:LocationModel
+  
 
   constructor(private outfitService: OutfitsService, private form: FormBuilder, private router: Router) {
     
@@ -31,8 +33,13 @@ export class OutfitCreateComponent implements OnInit {
   }
 
     onSubmit() {
-      this.outfitService.createOutfits(this.id,this.outfitForm.value).subscribe(data => {
-        this.router.navigate(['']);
+      this.activatedRoute.paramMap.subscribe(routeData=> {
+        this.outfitService.getOutfits(routeData.get('locationId')).subscribe((locationn:LocationModel)=>{
+          this.location=locationn;
+      this.outfitService.createOutfits(locationn.LocationId,this.outfitForm.value).subscribe(data=>{
+        this.router.navigate([''])
+        this.actionService.createAction(locationn.LocationId,this.actionForm.value).subscribe(data=>{
+      this.router.navigate([''])
       });
     }
 }

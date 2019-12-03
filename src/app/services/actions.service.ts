@@ -24,8 +24,8 @@ export class ActionsService {
     return this.http.put(`${Api_Url}/api/Action?actionID=${id}`, action, {headers: this.getHeaders()});
   }
 
-  createAction(id: number, action: ActionModel) {
-    return this.http.post(`${Api_Url}api/Action?locaionid=${id}`, action, {headers: this.getHeaders()});
+  createAction(locationid: number, action: ActionModel) {
+    return this.http.post(`${Api_Url}api/Action?locationid=${locationid}`, action, {headers: this.getHeaders()});
   }
 
   getEnumAction(temp: number, locationID: number) {

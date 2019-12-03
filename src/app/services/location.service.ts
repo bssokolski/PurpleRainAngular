@@ -18,8 +18,9 @@ export class LocationService {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
 
-  createLocation(location:LocationModel, id: number){
-    return this.http.post(`${Api_Url}/api/location${id}`,location,{headers: this.getHeaders()})
+  createLocation(location:LocationModel,){
+    return this.http.post(`${Api_Url}/api/location`,location,{headers: this.getHeaders()}))
+
   };
 
   getLocation(id: string){

@@ -51,8 +51,8 @@ const routes = [
 {
   path: 'Action', children:[
     {path: 'detail/:id', component: ActionDetailComponent},
-    {path: 'edit/:id', component: ActionEditComponent},
-    {path: 'create', component: ActionCreateComponent},
+    {path: 'edit/:locationid', component: ActionEditComponent},
+    {path: 'create/locationid', component: ActionCreateComponent}
   ]
 },
    {path: 'register', component: RegistrationComponent},

@@ -36,7 +36,7 @@ const routes = [
     BrowserAnimationsModule
   ],
   providers: [
-    AuthService
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })

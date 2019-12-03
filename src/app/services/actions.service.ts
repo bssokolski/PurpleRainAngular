@@ -14,22 +14,24 @@ export class ActionsService {
   constructor(private http: HttpClient) { }
 
   getAction(id: string) {
-    return this.http.get(`${Api_Url}api/Action/${id}`)
+    return this.http.get(`${Api_Url}api/Action/${id}`,{headers: this.getHeaders()});
+  }
+  private getHeaders(){
+    return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
 
   updateAction(action: ActionModel, id: number) {
-    return this.http.put(`${Api_Url}/api/Action?actionID=${id}`, action)
+    return this.http.put(`${Api_Url}/api/Action?actionID=${id}`, action, {headers: this.getHeaders()});
   }
 
   createAction(id: number, action: ActionModel) {
-    return this.http.post(`${Api_Url}api/Action?locaionid=${id}`, action)
+    return this.http.post(`${Api_Url}api/Action?locaionid=${id}`, action, {headers: this.getHeaders()});
   }
 
   getEnumAction(temp: number, locationID: number) {
     return this.http.get(`${Api_Url}/api/Action?${temp}&locationID=${locationID}`) //does this need to recieve a zipcode instead?
 
   }
-
   getTempOpen(zipCode:number): any{
     return this.http.get(`${Api_Url2}zip=${zipCode}&units=imperial&APPID=${APPID}`)
   }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import{HttpClient, HttpHeaders} from '@angular/common/http';
 import { LocationModel } from '../models/location';
 
-const Api_Url= 'https://localhost:44368/';
+const Api_Url= 'https://purplerainapi2.azurewebsites.net';
 
 @Injectable({
   providedIn: 'root'

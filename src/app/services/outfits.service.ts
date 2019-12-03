@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Outfit } from '../models/Outfit';
 
 
-const Api_Url= 'https://localhost:44368/';
+const Api_Url= 'https://purplerainapi2.azurewebsites.net';
 const Api_Url2 = 'http://api.openweathermap.org/data/2.5/weather?';
 const APPID = "84e63bc040e0079a4cc79dfff77e9389";
 

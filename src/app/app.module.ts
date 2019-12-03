@@ -91,15 +91,10 @@ const routes = [
 
   ],
   providers: [
-<<<<<<< HEAD
     AuthService,
-=======
-  AuthService,
-  LocationService,
-  OutfitsService,
-  ActionsService,
-    AuthService
->>>>>>> 9f791e99962d78c5607acadeaed1cf04ea5fb179
+    LocationService,
+    OutfitsService,
+    ActionsService,
   ],
 
   bootstrap: [AppComponent]

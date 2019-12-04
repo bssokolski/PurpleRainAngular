@@ -28,6 +28,24 @@
             </select>
         </mat-form-field>
     </div>
-    
+</form> 
+<br>
+<form (ngSubmit)="onSubmit()" [formGroup]="actionForm">
+    <div>
+        <mat-form-field>
+            <select matInput placeholder="Activity" formControlName="Activity" type="Activity">
+                <option></option>
+            </select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <select matInput placeholder="AtempRange" formControlName="AtempRange" type="AtempRange">
+                <option></option>
+            </select>
+        </mat-form-field>
+    </div>
     <button mat-raised-button-class="nav-btn" color="primary" type="submit">Add</button>
 </form> 
+
+

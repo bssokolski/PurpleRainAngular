@@ -29,6 +29,12 @@ export class LocationIndexComponent implements OnInit {
   dataSource: MatTableDataSource<Location>
   constructor(private locationService: LocationService, private actionService: ActionsService, private outfitService: OutfitsService) { }
 
+  columnNames= ['details','LocationID', 'LocationName', 'CityName','Outfit','Action','buttons']
+  dataSource: MatTableDataSource<Location>
+  //ngOnInit() {
+    //this.locationService.getLocations().subscribe((locations: Location[])=>{
+      //  this.dataSource = new MatTableDataSource<Location>(locations);
+
   ngOnInit() {
 
     this.locationService.getLocations().subscribe((location: LocationModel[]) => {
@@ -37,6 +43,7 @@ export class LocationIndexComponent implements OnInit {
         this.main.LocationName = element.LocationName;
         this.actionService.getTempOpen(element.CityName).subscribe(data => {
           this.main.Temp = data.main.temp;
+<<<<<<< HEAD
           this.actionService.getEnumAction(this.main.Temp, element.LocationID).subscribe((action: ActionModel) =>
             this.main.Action = action);
           this.outfitService.getEnumOutfit(this.main.Temp, element.LocationID).subscribe((outfit: Outfit) =>
@@ -47,6 +54,13 @@ export class LocationIndexComponent implements OnInit {
           });
 
         });
+=======
+          this.actionService.getEnumAction(this.main.Temp, element.LocationID).subscribe((action:ActionModel)=>
+      this.main.Action=action);
+          this.outfitService.getEnumOutfit(this.main.Temp,element.LocationID).subscribe((outfit:Outfit)=>
+          this.main.Outfit=outfit)       
+        this.finalArray.push(this.main);
+>>>>>>> 8178effe54805bc294cea4b0ab9c1e56b17aa1ff
       });
     }
   }

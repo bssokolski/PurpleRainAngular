@@ -28,6 +28,6 @@ export class ActionDetailComponent implements OnInit {
     });
     //this.actionService.getTempOpen(this.temp.Zipcode).subscribe(data => this.weatherTemp = data.main.temp)
     // return this.weatherTemp;
-
+  }
 
 }

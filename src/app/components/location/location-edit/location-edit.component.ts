@@ -29,7 +29,7 @@ export class LocationEditComponent implements OnInit {
   createForm(){
     this.editForm = this.formBuilder.group({
       OwnerId: new FormControl(this.location.OwnerId),
-      LocationId: new FormControl(this.location.LocationId),
+      LocationId: new FormControl(this.location.LocationID),
       LocationName: new FormControl(this.location.LocationName),
       CityName: new FormControl(this.location.CityName)
        
@@ -40,7 +40,7 @@ export class LocationEditComponent implements OnInit {
   {
     const updatedLocation: LocationModel = {
       OwnerId: this.editForm.value.OwnerId,
-      LocationId: this.editForm.value.LocationId,
+      LocationID: this.editForm.value.LocationID,
       LocationName: this.editForm.value.LocationName,
       CityName: this.editForm.value.CityName
     };

@@ -29,10 +29,10 @@ export class ActionsService {
   }
 
   getEnumAction(temp: number, locationID: number) {
-    return this.http.get(`${Api_Url}/api/Action?${temp}&locationID=${locationID}`) //does this need to recieve a zipcode instead?
+    return this.http.get(`${Api_Url}/api/Action?${temp}&locationID=${locationID}`,{headers: this.getHeaders() }); //does this need to recieve a zipcode instead?
 
   }
   getTempOpen(zipCode:number): any{
-    return this.http.get(`${Api_Url2}zip=${zipCode}&units=imperial&APPID=${APPID}`)
+    return this.http.get(`${Api_Url2}zip=${zipCode}&units=imperial&APPID=${APPID}`,{headers: this.getHeaders() });
   }
 }

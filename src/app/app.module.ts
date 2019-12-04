@@ -40,7 +40,7 @@ const routes = [
   ]
 },
 {
-  path: 'Outfit', children:[
+  path: 'outfit', children:[
     {path:'detail/:id', component:OutfitDetailsComponent},
     {path: 'create', component: OutfitCreateComponent},
     {path: 'edit/:id', component: OutfitEditComponent},

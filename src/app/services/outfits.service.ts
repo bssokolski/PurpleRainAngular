@@ -22,24 +22,24 @@ export class OutfitsService {
   }
 
   createOutfits(id:string , outfit: Outfit){
-    return this.http.post(`${Api_Url}/api/Outfit?locationid=${id}`, outfit,{headers: this.getHeaders()})
+    return this.http.post(`${Api_Url}/api/Outfit?locationid=${id}`, outfit,{headers: this.getHeaders()});
   }
 
   updateOutfit(outfit:Outfit,id: number){
-    return this.http.put(`${Api_Url}/api/Outfit?outfitid=${id}`,outfit,{headers: this.getHeaders()})
+    return this.http.put(`${Api_Url}/api/Outfit?outfitid=${id}`,outfit,{headers: this.getHeaders()});
   }
 
   deleteOutfit(id: number){
-    return this.http.delete(`${Api_Url}api/Outfit/${id}`,{headers: this.getHeaders()})
+    return this.http.delete(`${Api_Url}api/Outfit/${id}`,{headers: this.getHeaders()});
 
   }
 
   getEnumOutfit(temp: number, locationID: number) {
-    return this.http.get(`${Api_Url}/api/Outfit?${temp}&locationID=${locationID}`) //does this need to recieve a zipcode instead??
+    return this.http.get(`${Api_Url}/api/Outfit?${temp}&locationID=${locationID}`,{headers: this.getHeaders()}); //does this need to recieve a zipcode instead??
 
   }
   getTempOpen(zipCode:number){
-    return this.http.get(`${Api_Url2}zip=${zipCode}&units=imperial&APPID=${APPID}`)
+    return this.http.get(`${Api_Url2}zip=${zipCode}&units=imperial&APPID=${APPID}`,{headers: this.getHeaders()});
 
 }
 }

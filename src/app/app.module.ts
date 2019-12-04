@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
-import { MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule} from "@angular/material";
+import { MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule,MatTableModule,MatSelectModule} from "@angular/material";
 import {RouterModule} from '@angular/router';
 import{HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -23,7 +23,6 @@ import { OutfitEditComponent } from './components/Outfit/outfit-edit/outfit-edit
 import { OutfitDeleteComponent } from './components/outfit/outfit-delete/outfit-delete.component';
 import { ActionDetailComponent } from './components/action/action-detail/action-detail.component';
 import { ActionEditComponent } from './components/action/action-edit/action-edit.component';
-import { ActionCreateComponent } from './components/action/action-create/action-create.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { LoginComponent } from './components/login/login.component'; 
 
@@ -52,7 +51,6 @@ const routes = [
   path: 'Action', children:[
     {path: 'detail/:id', component: ActionDetailComponent},
     {path: 'edit/:locationid', component: ActionEditComponent},
-    {path: 'create/locationid', component: ActionCreateComponent}
   ]
 },
    {path: 'register', component: RegistrationComponent},
@@ -74,7 +72,7 @@ const routes = [
     OutfitEditComponent,
     OutfitDeleteComponent,
     ActionDetailComponent,
-    ActionCreateComponent,
+    ActionEditComponent,
     RegistrationComponent,
     LoginComponent,
   ],
@@ -88,6 +86,8 @@ const routes = [
     MatFormFieldModule,
     MatInputModule,
      MatButtonModule,
+     MatTableModule,
+     MatSelectModule,
     BrowserAnimationsModule
 
   ],

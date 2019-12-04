@@ -21,7 +21,7 @@ export class OutfitsService {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
 
-  createOutfits(id:number , outfit: Outfit){
+  createOutfits(id:string , outfit: Outfit){
     return this.http.post(`${Api_Url}/api/Outfit?locationid=${id}`, outfit,{headers: this.getHeaders()})
   }
 

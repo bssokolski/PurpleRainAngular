@@ -15,7 +15,7 @@ location: LocationModel;
 
   constructor(private activatedRoute: ActivatedRoute, private locationService: LocationService, private router: Router) {
     this.activatedRoute.paramMap.subscribe(params =>{
-      this.locationService.getLocation(params.get('id')).subscribe((location: LocationModel)=>{
+      this.locationService.getLocation(params.get('id')).subscribe((location: LocationModel)=> {
         this.location=location;
       });
     });

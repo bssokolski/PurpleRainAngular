@@ -9,6 +9,7 @@ import {AuthService} from 'src/app/services/auth.service';
 })
 
 export class RegistrationComponent implements OnInit {
+
   private registerForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService) { 

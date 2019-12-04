@@ -3,10 +3,8 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { OutfitsService } from 'src/app/services/outfits.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LocationModel } from 'src/app/models/location';
-import { ActionCreateComponent } from '../../action/action-create/action-create.component';
 import { ActionsService } from 'src/app/services/actions.service';
-import { Outfit } from 'src/app/models/Outfit';
-import { Action } from 'rxjs/internal/scheduler/Action';
+
 
 
 
@@ -18,12 +16,11 @@ import { Action } from 'rxjs/internal/scheduler/Action';
 export class OutfitCreateComponent implements OnInit {
 
   outfitForm: FormGroup;
+  actionForm: FormGroup;
   location:LocationModel;
-  Action:ActionCreateComponent;
-  outfitToBeSubmitted: Outfit;
-  actionToBeSubmitted: Action;
-  constructor(private outfitService: OutfitsService, private form: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute)
-  {}
+
+  constructor(private outfitService: OutfitsService, private form: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute, private actionService: ActionsService)
+  { this.createForm()}
 
 
     
@@ -37,10 +34,22 @@ export class OutfitCreateComponent implements OnInit {
       Top: new FormControl,
       Bottom: new FormControl,
       OutfitID: new FormControl,
-      
+       });
+    this.actionForm = this.form.group({
+      Activity: new FormControl,
+      AtempRange:new FormControl
     });
+
   }
-  
+  onSubmit(){
+    this.activatedRoute.paramMap.subscribe(routeData => {
+      this.outfitService.createOutfits(routeData.get('locationId'),this.outfitForm.value).subscribe(()=> {
+        this.actionService.createAction(routeData.get('locationId'), this.actionForm.value).subscribe(()=> {
+          this.router.navigate(['']);
+        });
+      });
+    })
+  }
 //   onSubmit() {
 //     //  var outfitCreate = {
 //       //OutfitName: this.outfitForm.value.OutfitName,

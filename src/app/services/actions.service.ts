@@ -24,7 +24,7 @@ export class ActionsService {
     return this.http.put(`${Api_Url}/api/Action?actionID=${id}`, action, {headers: this.getHeaders()});
   }
 
-  createAction(locationid: number, action: ActionModel) {
+  createAction(locationid: string, action: ActionModel) {
     return this.http.post(`${Api_Url}api/Action?locationid=${locationid}`, action, {headers: this.getHeaders()});
   }
 

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActionModel } from '../models/Action';
 import { zip } from 'rxjs';
 
-const Api_Url = 'https://localhost:44368/';
+const Api_Url = 'https://purplerainapi2.azurewebsites.net';
 const Api_Url2 = 'http://api.openweathermap.org/data/2.5/weather?';
 const APPID = "84e63bc040e0079a4cc79dfff77e9389";
 @Injectable({
@@ -24,8 +24,8 @@ export class ActionsService {
     return this.http.put(`${Api_Url}/api/Action?actionID=${id}`, action, {headers: this.getHeaders()});
   }
 
-  createAction(id: number, action: ActionModel) {
-    return this.http.post(`${Api_Url}api/Action?locaionid=${id}`, action, {headers: this.getHeaders()});
+  createAction(locationid: number, action: ActionModel) {
+    return this.http.post(`${Api_Url}api/Action?locationid=${locationid}`, action, {headers: this.getHeaders()});
   }
 
   getEnumAction(temp: number, locationID: number) {

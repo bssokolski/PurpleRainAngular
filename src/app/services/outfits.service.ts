@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Outfit } from '../models/Outfit';
 
 
-const Api_Url= 'https://localhost:44368/';
+const Api_Url= 'https://purplerainapi2.azurewebsites.net';
 const Api_Url2 = 'http://api.openweathermap.org/data/2.5/weather?';
 const APPID = "84e63bc040e0079a4cc79dfff77e9389";
 
@@ -25,7 +25,7 @@ export class OutfitsService {
     return this.http.post(`${Api_Url}/api/Outfit?locationid=${id}`, outfit,{headers: this.getHeaders()})
   }
 
-  updateOutfit(id: number, outfit:Outfit){
+  updateOutfit(outfit:Outfit,id: number){
     return this.http.put(`${Api_Url}/api/Outfit?outfitid=${id}`,outfit,{headers: this.getHeaders()})
   }
 
@@ -41,4 +41,5 @@ export class OutfitsService {
   getTempOpen(zipCode:number){
     return this.http.get(`${Api_Url2}zip=${zipCode}&units=imperial&APPID=${APPID}`)
 
+}
 }

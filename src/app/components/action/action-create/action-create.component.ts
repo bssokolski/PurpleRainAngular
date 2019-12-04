@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionsService } from 'src/app/services/actions.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { LocationModel } from 'src/app/models/location';
+import { getMatIconFailedToSanitizeLiteralError } from '@angular/material';
 
 @Component({
   selector: 'app-action-create',
@@ -11,22 +13,32 @@ import { Router } from '@angular/router';
 export class ActionCreateComponent implements OnInit {
 
   actionForm:FormGroup;
-  constructor(private actionService: ActionsService, private form: FormBuilder, private router: Router) { 
+  location: LocationModel
+
+  constructor(private actionService: ActionsService, private form: FormBuilder, private router: Router,
+    private activatedRoute:ActivatedRoute) { 
     this.createForm();
   }
 
   ngOnInit() {
+   
   }
 
   createForm(){
     this.actionForm = this.form.group({
-      Activity: new FormControl
+      Activity: new FormControl,
+      AtempRange:new FormControl
     });
   }
 
   onSubmit(){
-    this.actionService.createAction(id,this.actionForm.value).subscribe(data=>{
+    this.activatedRoute.paramMap.subscribe(routeData=> {
+      this.actionService.getAction(routeData.get('locationId')).subscribe((locationn:LocationModel)=>{
+        this.location=locationn;
+    this.actionService.createAction(locationn.LocationID,this.actionForm.value).subscribe(data=>{
       this.router.navigate([''])
     })
+  });
+});
   }
 }

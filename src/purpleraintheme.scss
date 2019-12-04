@@ -1,0 +1,11 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$purple-rain-theme-primary: mat-palette($mat-grey, 50);
+$purple-rain-theme-accent:  mat-palette($mat-grey, 50,);
+$purple-rain-theme-warn:    mat-palette($mat-red);
+
+$purple-rain-theme: mat-light-theme($purple-rain-theme-primary, $purple-rain-theme-accent, $purple-rain-theme-warn);
+
+@include angular-material-theme($purple-rain-theme); 

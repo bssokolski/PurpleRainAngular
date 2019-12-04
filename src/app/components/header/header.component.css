@@ -4,5 +4,8 @@
 
 .nav-btn{
     margin-right: 0.5em;
-    background-color: #132584;
+    background-color: darkorchid;
+    padding: 10px 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
 }
